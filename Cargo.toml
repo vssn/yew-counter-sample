@@ -1,0 +1,25 @@
+[package]
+authors = ["Edmund Goller <edmund.goller@artdesk.de>"]
+edition = "2018"
+name = "yew-counter-sample"
+version = "0.1.0"
+[[bin]]
+name = "counter"
+path = "src/main.rs"
+
+[dependencies]
+failure = "0.1"
+stdweb = "0.4"
+strum = "0.9"
+strum_macros = "0.9"
+serde = "1"
+serde_derive = "1"
+
+[dependencies.yew]
+git = "https://github.com/DenisKolodin/yew"
+path = "../.."
+features = ["toml"]
+
+[lib]
+name = "yew_counter_sample"
+path = "src/lib.rs"
