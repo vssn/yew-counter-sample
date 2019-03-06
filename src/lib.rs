@@ -27,14 +27,12 @@ impl Component for Model {
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Action::INCREASE => {
-                if self.counter >= 0 {
-                    self.counter += 1;
-                }
+                self.counter += 1;
                 self.console.log("Erhöht um 1");
                 true
             },
             Action::DECREASE => {
-                    self.counter -= 1;
+                self.counter -= 1;
                 self.console.log("Verringert um 1");
                 true
             },
@@ -47,8 +45,8 @@ impl Renderable<Model> for Model {
         html! {
             <div>
                 <p>{"Counter: "}{self.counter}</p>
-                <button class="btn btn-info", onclick=|_| Action::INCREASE, >{"Increase"}</button>
-                <button class="btn btn-primary", onclick=|_| Action::DECREASE, >{"Decrease"}</button>
+                <button class="btn btn-light btn-lg", onclick=|_| Action::INCREASE, >{"👍"}</button>
+                <button class="btn btn-light btn-lg", onclick=|_| Action::DECREASE, >{"👎"}</button>
                 <ul>{ 
                         for (0..self.counter).into_iter().map(|x| {
                             self.view_item()
