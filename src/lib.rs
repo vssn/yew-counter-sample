@@ -43,10 +43,10 @@ impl Component for Model {
 impl Renderable<Model> for Model {
     fn view(&self) -> Html<Self> {
         html! {
-            <div>
-                <p>{"Counter: "}{self.counter}</p>
+            <div class="jumbotron text-center">
+                <p>{"Rows: "}{self.counter}</p>
                 <button class="btn btn-light btn-lg", onclick=|_| Action::INCREASE, >{"👍"}</button>
-                <button class="btn btn-light btn-lg", onclick=|_| Action::DECREASE, >{"👎"}</button>
+                <button class="btn btn-light btn-lg ml-2", onclick=|_| Action::DECREASE, >{"👎"}</button>
                 <ul>{ 
                         for (0..self.counter).into_iter().map(|x| {
                             self.view_item()
